@@ -11,6 +11,10 @@ public class Screening {
         this.whenScreened = whenScreened;
     }
 
+    public Reservation reserve(Customer customer, int audienceCount){
+        return new Reservation(customer, this, caculateFee(audienceCount), audienceCount);
+    }
+
     public LocalDateTime getStartTime(){
         return whenScreened;
     }
@@ -21,5 +25,9 @@ public class Screening {
 
     public Money getMovieFee(){
         return movie.getFee();
+    }
+    // this는 메서드를 포함한 movie 객체를 지칭
+    private Money caculateFee(int audienceCount){
+        return movie.caculateMovieFee(this).times(audienceCount);
     }
 }

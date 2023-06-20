@@ -12,4 +12,6 @@ public class Movie {
         this.runningTime = runningTime;
         this.fee = fee;
     }
+    // 1인당 예매요금
+    public Money caculateMovieFee(){}
 }
